@@ -179,8 +179,15 @@ function removeFirstOccurrences(str, value) {
  *   removeLastOccurrences('I like legends', 'end') => 'I like legs'.
  *   removeLastOccurrences('ABABAB', 'BA') => 'ABAB'.
  */
-function removeLastOccurrences(/* str, value */) {
-  throw new Error('Not implemented');
+function removeLastOccurrences(str, value) {
+  const ind = str.lastIndexOf(value);
+  let res = '';
+  if (ind !== -1) {
+    res += str.substring(0, ind) + str.substring(ind + value.length);
+  } else {
+    res = str;
+  }
+  return res;
 }
 
 /**
@@ -331,8 +338,11 @@ function countVowels(str) {
  *   isPalindrome('apple') => false
  *   isPalindrome('No lemon, no melon') => true
  */
-function isPalindrome(/* str */) {
-  throw new Error('Not implemented');
+function isPalindrome(str) {
+  const newStr = str.toLowerCase().replace(/[^\w]/g, '');
+  const res = newStr.split('').reverse().join('');
+
+  return res === newStr;
 }
 
 /**
